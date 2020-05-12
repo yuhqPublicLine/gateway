@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: gateway
+  cloud:
+    consul:
+      host: 192.168.6.99
+      port: 8500
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        -id: gateway-route
+        uri: lb://${spring.application.name}
+server:
+  port: 8080
